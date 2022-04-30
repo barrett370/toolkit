@@ -1,4 +1,5 @@
 use std::io::{self, BufRead};
+
 use urlencoding::encode;
 
 fn process<I: IntoIterator<Item = String>>(strings: I) {
@@ -10,10 +11,7 @@ fn process<I: IntoIterator<Item = String>>(strings: I) {
 
 fn main() {
     match std::env::args().nth(1) {
-        Some(i) => {
-            let v = vec![i];
-            process(v)
-        }
+        Some(_) => process(std::env::args()),
         None => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
     };
 }

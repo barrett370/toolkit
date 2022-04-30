@@ -1,5 +1,6 @@
-use html_escape;
 use std::io::{self, BufRead};
+
+use html_escape;
 
 fn process<I: IntoIterator<Item = String>>(strings: I) {
     for string in strings {
@@ -10,10 +11,7 @@ fn process<I: IntoIterator<Item = String>>(strings: I) {
 
 fn main() {
     match std::env::args().nth(1) {
-        Some(i) => {
-            let v = vec![i];
-            process(v)
-        }
+        Some(_) => process(std::env::args()),
         None => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
     };
 }
