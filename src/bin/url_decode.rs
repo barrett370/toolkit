@@ -1,10 +1,19 @@
-use std::io;
+use std::io::{self, BufRead};
 use urlencoding::decode;
 
+fn process<I: IntoIterator<Item = String>>(strings: I) {
+    for string in strings {
+        let output = decode(string.as_str()).expect("UTF-8");
+        println!("{}", output);
+    }
+}
+
 fn main() {
-    let stdin = io::stdin();
-    let mut buffer = String::new();
-    stdin.read_line(&mut buffer).unwrap();
-    let decoded = decode(buffer.as_str()).expect("UTF-8");
-    println!("{}", decoded);
+    match std::env::args().nth(1) {
+        Some(i) => {
+            let v = vec![i];
+            process(v)
+        }
+        None => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
+    };
 }

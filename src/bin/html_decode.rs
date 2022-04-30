@@ -1,10 +1,22 @@
-use std::io;
 use html_escape;
+use std::{
+    io::{self, BufRead},
+    vec,
+};
+
+fn process<I: IntoIterator<Item = String>>(strings: I) {
+    for string in strings {
+        let output = html_escape::decode_html_entities(string.as_str());
+        println!("{}", output);
+    }
+}
 
 fn main() {
-    let stdin = io::stdin();
-    let mut buffer = String::new();
-    stdin.read_line(&mut buffer).unwrap();
-    let decoded = html_escape::decode_html_entities(buffer.as_str());
-    println!("{}", decoded);
+    match std::env::args().nth(1) {
+        Some(i) => {
+            let v = vec![i];
+            process(v)
+        }
+        None => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
+    };
 }
