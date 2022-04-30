@@ -12,10 +12,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "ipnet"
+version = "2.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "879d54834c8c76457ef4293a689b2a8c59b076067ad77b15efafbb05f92a592b"
+
+[[package]]
 name = "toolkit"
 version = "0.1.0"
 dependencies = [
  "html-escape",
+ "ipnet",
  "unescape",
  "urlencoding",
 ]
