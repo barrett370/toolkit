@@ -3,7 +3,7 @@ use unescape::unescape;
 
 fn process<I: IntoIterator<Item = String>>(strings: I) {
     for string in strings {
-        let output = unescape(string.as_str()).unwrap();
+        let output = unescape(string.as_str()).expect("input could not be decoded as valid unicode");
         println!("{}", output);
     }
 }

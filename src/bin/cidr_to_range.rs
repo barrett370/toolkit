@@ -6,7 +6,7 @@ use std::{
 
 fn process<I: IntoIterator<Item = String>>(strings: I) {
     for string in strings {
-        let net = IpNet::from_str(&string).expect("argument 1 was not a valid IPv4/IPv6 CIDR");
+        let net = IpNet::from_str(&string).expect("input was not a valid IPv4/IPv6 CIDR");
         let subnets = net.subnets(net.max_prefix_len()).unwrap();
         let (_, min) = subnets.enumerate().min().unwrap();
         let (_, max) = subnets.enumerate().max().unwrap();

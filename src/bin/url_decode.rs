@@ -3,7 +3,7 @@ use urlencoding::decode;
 
 fn process<I: IntoIterator<Item = String>>(strings: I) {
     for string in strings {
-        let output = decode(string.as_str()).expect("UTF-8");
+        let output = decode(string.as_str()).expect("input was not valid UTF-8");
         println!("{}", output);
     }
 }
