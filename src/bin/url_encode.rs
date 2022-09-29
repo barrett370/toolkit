@@ -10,8 +10,8 @@ fn process<I: IntoIterator<Item = String>>(strings: I) {
 }
 
 fn main() {
-    match std::env::args().nth(1) {
-        Some(_) => process(std::env::args()),
-        None => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
+    match std::env::args().len() {
+        1 => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
+        _ => process(std::env::args().skip(1)),
     };
 }
