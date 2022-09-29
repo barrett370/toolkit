@@ -20,7 +20,6 @@
 
       in rec {
         packages = {
-          # replace hello-world with your package name
           toolkit = (rustPkgs.workspace.toolkit {}).bin;
           default = packages.toolkit;
         };
