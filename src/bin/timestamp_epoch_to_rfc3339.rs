@@ -5,7 +5,7 @@ use chrono::{DateTime, TimeZone, Utc};
 fn process<I: IntoIterator<Item = String>>(strings: I) {
     for string in strings {
         let epoch: i64 = string.parse().unwrap();
-        let dt: DateTime<Utc> = Utc.timestamp(epoch, 0);
+        let dt: DateTime<Utc> = Utc.timestamp_opt(epoch, 0).unwrap();
         println!("{}", dt.format("%FT%H:%M:%SZ"));
     }
 }
