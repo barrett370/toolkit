@@ -9,7 +9,22 @@
 
 ## Getting Started
 
+Direct install using cargo:
+
 ```sh
 cargo build --release
 cargo install --path .
+```
+
+Or via nix:
+
+```sh
+nix-env -i -f .
+```
+
+## Updating dependencies
+
+```sh
+cargo update
+nix-shell --run 'crate2nix generate'
 ```
