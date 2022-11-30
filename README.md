@@ -19,7 +19,7 @@ cargo install --path .
 Or via nix:
 
 ```sh
-nix-env -i -f .
+nix-env -i -f Cargo.nix
 ```
 
 ## Updating dependencies
