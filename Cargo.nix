@@ -124,10 +124,10 @@ rec {
       };
       "cc" = rec {
         crateName = "cc";
-        version = "1.0.74";
+        version = "1.0.77";
         edition = "2018";
         crateBin = [ ];
-        sha256 = "0x0m14cizayy1ydiyvw76gl0wij8120w8ppb7zm55b1sj2x5s7sq";
+        sha256 = "1r7bv6sxwmpw9xaibz4fdfs2w8xfdabki1yi35dr0zcg6c2kbxz9";
         authors = [
           "Alex Crichton <alex@alexcrichton.com>"
         ];
@@ -152,9 +152,9 @@ rec {
       };
       "chrono" = rec {
         crateName = "chrono";
-        version = "0.4.22";
+        version = "0.4.23";
         edition = "2018";
-        sha256 = "1w8ykn9gay819zdwrsz353px580x279xxnrlg6fsi8xa3yrx3m5z";
+        sha256 = "07s1hnrw8zpmgf76fj5sx0dzxny5p1xs703p0li4n8h1xpcs7c0n";
         dependencies = [
           {
             name = "iana-time-zone";
@@ -199,6 +199,7 @@ rec {
         ];
         features = {
           "__internal_bench" = [ "criterion" ];
+          "arbitrary" = [ "dep:arbitrary" ];
           "clock" = [ "std" "winapi" "iana-time-zone" ];
           "criterion" = [ "dep:criterion" ];
           "default" = [ "clock" "std" "oldtime" "wasmbind" ];
@@ -252,9 +253,9 @@ rec {
       };
       "cxx" = rec {
         crateName = "cxx";
-        version = "1.0.80";
+        version = "1.0.82";
         edition = "2018";
-        sha256 = "0fizn8xhjdxj270h4x98zmmalan3rx7isskhc939jg2xn91lwzbb";
+        sha256 = "0lzlzaywnaf0qacqnx6xk97jvpfanwb9jxzav7syf3qdaf31m96l";
         authors = [
           "David Tolnay <dtolnay@gmail.com>"
         ];
@@ -290,9 +291,9 @@ rec {
       };
       "cxx-build" = rec {
         crateName = "cxx-build";
-        version = "1.0.80";
+        version = "1.0.82";
         edition = "2018";
-        sha256 = "09sqbqfwh2i7fvjk33x2ns65mdjjqmj2a6p5d09jqgi1vjfq5y44";
+        sha256 = "1w52b6k5r2zq81885l64rvwnr8jxmspxi36dy4nsvqzkgxk6sh86";
         authors = [
           "David Tolnay <dtolnay@gmail.com>"
         ];
@@ -337,9 +338,9 @@ rec {
       };
       "cxxbridge-flags" = rec {
         crateName = "cxxbridge-flags";
-        version = "1.0.80";
+        version = "1.0.82";
         edition = "2018";
-        sha256 = "0sn5gh26cmzsqb2k3q3zxw4mvlxnsi0pqr06113g2jj79d13f9g7";
+        sha256 = "0wfgqzi67fp025h36cb79cn6l6gxdx3iy9yb4zpyx7b6y4m9l2l2";
         authors = [
           "David Tolnay <dtolnay@gmail.com>"
         ];
@@ -348,9 +349,9 @@ rec {
       };
       "cxxbridge-macro" = rec {
         crateName = "cxxbridge-macro";
-        version = "1.0.80";
+        version = "1.0.82";
         edition = "2018";
-        sha256 = "1mx4q1xxslfi1v130y7wm4xq30cz41ms23ga9ghy347d7swlz7ih";
+        sha256 = "0w7lflr6ksrkdf4ybg6sipiwxd5ind6zbamlsfd0h2iprhpnx2m0";
         procMacro = true;
         authors = [
           "David Tolnay <dtolnay@gmail.com>"
@@ -381,9 +382,9 @@ rec {
       };
       "html-escape" = rec {
         crateName = "html-escape";
-        version = "0.2.11";
+        version = "0.2.12";
         edition = "2021";
-        sha256 = "0v62vdrz02p5sgpvhv7hcg8g4paipqkc8hkazd4ynf7gl6glgrxq";
+        sha256 = "01f2v3c6j2rk5h2lhdbh62j07cm1fvzqw4vplj2sms83jpx5qc8m";
         authors = [
           "Magic Len <len@magiclen.org>"
         ];
@@ -468,9 +469,9 @@ rec {
       };
       "ipnet" = rec {
         crateName = "ipnet";
-        version = "2.5.0";
+        version = "2.5.1";
         edition = "2018";
-        sha256 = "0asr5bwhbfxgxwappmvs0rvb0ncc5adnhfi9yiz4axlc9j1m97c7";
+        sha256 = "0ic7pm4df3waxc0vi9vy1wq5i5azzlccz2yrz6fyd28i2xhmb37q";
         authors = [
           "Kris Price <kris@krisprice.nz>"
         ];
@@ -677,9 +678,9 @@ rec {
       };
       "syn" = rec {
         crateName = "syn";
-        version = "1.0.103";
+        version = "1.0.104";
         edition = "2018";
-        sha256 = "0pa4b6g938drphblgdhmjnzclp7gcbf4zdgkmfaxlfhk54i08r58";
+        sha256 = "1kl5qlj2fikl0bf6xbcqppbxdhl714ikq3biyw78q6fg6vn4iraa";
         authors = [
           "David Tolnay <dtolnay@gmail.com>"
         ];
@@ -728,9 +729,9 @@ rec {
       };
       "time" = rec {
         crateName = "time";
-        version = "0.1.44";
+        version = "0.1.45";
         edition = "2015";
-        sha256 = "0m9jwy2pcmk232r3b9r80fs12mkckfjffjha4qfaxcdq9a8ydfbd";
+        sha256 = "0nl0pzv9yf56djy8y5dx25nka5pr2q1ivlandb3d24pksgx7ly8v";
         authors = [
           "The Rust Project Developers"
         ];
