@@ -12,7 +12,7 @@ pkgs.stdenv.mkDerivation {
   ];
 
   installPhase = ''
-      cargo build --release -Z unstable-options --out-dir $out
+      cargo build --release -Z unstable-options --out-dir $out/bin
   '';
 
   postInstall = ''
