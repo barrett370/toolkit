@@ -12,7 +12,7 @@ Direct install using cargo:
 
 ```sh
 cargo build --release
-cargo install --path .
+cargo install --root ~/.local --path .
 ```
 
 ## Updating dependencies
