@@ -4,7 +4,6 @@
 
 | Project             | Version |
 |---------------------|---------|
-| rust-lang.org       | ^1.65   |
 | rust-lang.org/cargo | ^0.65   |
 
 ## Getting Started
@@ -13,18 +12,11 @@ Direct install using cargo:
 
 ```sh
 cargo build --release
-cargo install --path .
-```
-
-Or via nix:
-
-```sh
-nix-env -i -f Cargo.nix
+cargo install --root ~/.local --path .
 ```
 
 ## Updating dependencies
 
 ```sh
 cargo update
-nix-shell --run 'crate2nix generate'
 ```
