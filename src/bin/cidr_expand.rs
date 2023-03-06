@@ -9,9 +9,7 @@ fn process<I: IntoIterator<Item = String>>(strings: I) {
     for string in strings {
         let net = IpNet::from_str(&string).expect("input was not a valid IPv4/IPv6 CIDR");
         let subnets = net.subnets(net.max_prefix_len()).unwrap();
-        for (_, subnet) in subnets.enumerate() {
-            println!("{}", subnet.addr())
-        }
+        subnets.into_iter().for_each(|f| println!("{}", f.addr()));
     }
 }
 
