@@ -3,6 +3,6 @@ use uuid::Uuid;
 fn main() {
     println!(
         "{}",
-        Uuid::new_v4().to_string().replace("-", "").to_lowercase()
+        Uuid::new_v4().to_string().replace('-', "").to_lowercase()
     )
 }

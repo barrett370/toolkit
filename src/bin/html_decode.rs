@@ -1,10 +1,10 @@
 use std::io::{self, BufRead};
 
-use html_escape;
+use html_escape::decode_html_entities;
 
 fn process<I: IntoIterator<Item = String>>(strings: I) {
     for string in strings {
-        let output = html_escape::decode_html_entities(string.as_str());
+        let output = decode_html_entities(string.as_str());
         println!("{}", output);
     }
 }
