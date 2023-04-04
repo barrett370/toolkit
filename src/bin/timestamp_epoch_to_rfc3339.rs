@@ -20,7 +20,7 @@ fn process<I: IntoIterator<Item = String>>(strings: I) {
             }
         }
         let dt: DateTime<Utc> = Utc.timestamp_opt(secs, nsecs).unwrap();
-        println!("{}", dt.format("%FT%H:%M:%SZ"));
+        println!("{}", dt.to_rfc3339())
     }
 }
 

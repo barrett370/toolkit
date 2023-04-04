@@ -5,7 +5,7 @@ use chrono::{DateTime, FixedOffset};
 fn process<I: IntoIterator<Item = String>>(strings: I) {
     for string in strings {
         let dt: DateTime<FixedOffset> = DateTime::parse_from_rfc3339(&string).unwrap();
-        println!("{}", dt.format("%s"));
+        println!("{}", dt.timestamp());
     }
 }
 

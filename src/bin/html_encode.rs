@@ -15,4 +15,3 @@ fn main() {
         _ => process(std::env::args().skip(1)),
     };
 }
-

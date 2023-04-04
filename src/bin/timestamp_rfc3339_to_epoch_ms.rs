@@ -1,12 +1,11 @@
 use std::io::{self, BufRead};
 
-use unescape::unescape;
+use chrono::{DateTime, FixedOffset};
 
 fn process<I: IntoIterator<Item = String>>(strings: I) {
     for string in strings {
-        let output =
-            unescape(string.as_str()).expect("input could not be decoded as valid unicode");
-        println!("{}", output);
+        let dt: DateTime<FixedOffset> = DateTime::parse_from_rfc3339(&string).unwrap();
+        println!("{}", dt.timestamp_millis());
     }
 }
 
