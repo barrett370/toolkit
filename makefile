@@ -1,4 +1,6 @@
-.DEFAULT_GOAL = install
+.DEFAULT_GOAL = build
+
+PREFIX ?= $(HOME)/.local
 
 .PHONY: clean
 clean:
@@ -10,4 +12,4 @@ build:
 
 .PHONY: install
 install: build
-	cargo install --root ~/.local --path .
+	cargo install --root $(PREFIX) --path .
