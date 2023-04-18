@@ -1,10 +1,7 @@
 use ipnet::Ipv4Subnets;
-use std::{
-    io::{self, BufRead},
-};
+use toolkit::lib::foreach_input;
 
-fn process<I: IntoIterator<Item = String>>(strings: I) {
-    for string in strings {
+fn process(string: String) {
         // Parse the input into two Ipv4Addr values
         let mut addrs = string.split('-');
 
@@ -21,11 +18,8 @@ fn process<I: IntoIterator<Item = String>>(strings: I) {
             println!("{}", subnet)
         }
     }
-}
+
 
 fn main() {
-    match std::env::args().len() {
-        1 => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
-        _ => process(std::env::args().skip(1)),
-    };
+    foreach_input(process);
 }

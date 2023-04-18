@@ -1,17 +1,11 @@
-use std::io::{self, BufRead};
-
 use chrono::{DateTime, FixedOffset};
+use toolkit::lib::foreach_input;
 
-fn process<I: IntoIterator<Item = String>>(strings: I) {
-    for string in strings {
-        let dt: DateTime<FixedOffset> = DateTime::parse_from_rfc3339(&string).unwrap();
-        println!("{}", dt.format("%s"));
-    }
+fn process(string: String) {
+    let dt: DateTime<FixedOffset> = DateTime::parse_from_rfc3339(&string).unwrap();
+    println!("{}", dt.format("%s"));
 }
 
 fn main() {
-    match std::env::args().len() {
-        1 => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
-        _ => process(std::env::args().skip(1)),
-    };
+    foreach_input(process);
 }
