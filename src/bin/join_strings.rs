@@ -1,10 +1,14 @@
-
+use std::io::{self, BufRead};
 
 fn process<I: IntoIterator<Item=String>>(strings: I) {
-    let res = strings.into_iter().collect::<Vec<String>>().join(", ");
-    println!("{}", res)
+    println!(
+        "{}",
+        strings.into_iter().collect::<Vec<String>>().join(", ")
+    )
 }
-
 fn main() {
-    process(std::env::args().skip(1))
+    match std::env::args().len() {
+        1 => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
+        _ => process(std::env::args().skip(1)),
+    };
 }
