@@ -11,6 +11,7 @@ html-escape = "0.2.11"
 unescape = "0.1.0"
 ipnet = "2.5.0"
 chrono = "0.4"
+clap = { version = "4.3.21", features = ["derive"] }
 
 [dependencies.uuid]
 version = "1.2.2"

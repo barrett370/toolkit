@@ -1,14 +1,28 @@
+use clap::Parser;
 use std::io::{self, BufRead};
 
-fn process<I: IntoIterator<Item=String>>(strings: I) {
-    println!(
-        "{}",
-        strings.into_iter().collect::<Vec<String>>().join(", ")
-    )
+#[derive(Parser, Debug)]
+#[command(author,version,about,long_about=None)]
+struct Args {
+    #[arg(short, long, default_value_t=String::from(","))]
+    separator: String,
+
+    strings: Option<Vec<String>>,
 }
+
 fn main() {
-    match std::env::args().len() {
-        1 => process(io::stdin().lock().lines().map(|ln| ln.unwrap())),
-        _ => process(std::env::args().skip(1)),
-    };
+    let args = Args::parse();
+    let sep = &format!("{} ", args.separator);
+    match args.strings {
+        Some(ss) => println!("{}", ss.join(&sep)),
+        None => println!(
+            "{}",
+            io::stdin()
+                .lock()
+                .lines()
+                .map(|ln| ln.unwrap())
+                .collect::<Vec<String>>()
+                .join(&sep)
+        ),
+    }
 }
