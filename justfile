@@ -1,4 +1,4 @@
-PREFIX := "$HOME/.local"
+PREFIX := env('HOME') / '.local'
 
 default: build
 
